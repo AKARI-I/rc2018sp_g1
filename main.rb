@@ -1,12 +1,16 @@
 require 'dxruby'
 
+require_relative 'director'
+require_relative 'player'
+
 Window.caption = "RubyCamp2018"
+Window.width   = 600
+Window.height  = 800
 
-Window.width = 600
-Window.height = 800
-
-bg_img = Image.load("images/background.png")
+director = Director.new
 
 Window.loop do
-	Window.draw(0, 0, bg_img)
+  break if Input.keyPush?(K_ESCAPE)
+
+  director.play
 end
