@@ -3,12 +3,12 @@ class Player
     @x, @y = x, y
     @image = Image.load(image_file)
     @image.set_color_key([0, 0, 0])
-    @dx = 1
+    @dy = 3
   end
 
   def move
-    @x += @dx
-    @dx = -@dx if @x > (Window.width - @image.width) || @x < 0
+    @y += @dy
+    @dy = -@dy if @y > 600 || @y < 0
   end
 
   def draw
