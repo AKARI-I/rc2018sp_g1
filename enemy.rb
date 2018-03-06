@@ -1,4 +1,4 @@
-class Player
+class Enemy
   def initialize(x, y, image_file)
     @x, @y = x, y
     @image = Image.load(image_file)

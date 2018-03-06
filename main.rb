@@ -1,7 +1,7 @@
 require 'dxruby'
 
 require_relative 'director'
-require_relative 'player'
+require_relative 'enemy'
 
 Window.caption = "RubyCamp2018"
 Window.width   = 600

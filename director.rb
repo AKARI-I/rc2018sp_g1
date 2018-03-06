@@ -1,6 +1,6 @@
 class Director
   def initialize
-    @char = Player.new(0, 300, "images/enemy.png")
+    @char = Enemy.new(0, 300, "images/enemy.png")
     @bg_img = Image.load("images/background.png")
   end
 
