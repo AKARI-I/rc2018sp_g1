@@ -10,8 +10,15 @@ class Player
   
     def initialize(haba)
         # @board = board
-        @image_player = Image.load('./gamescene/a.png')
-        @image_ball = Image.load('./gamescene/b.png')
+
+        ## change images ##
+        # @image_player = Image.load('./gamescene/a.png')
+        # @image_ball = Image.load('./gamescene/b.png')
+
+        @image_player = Image.load('images/player2_2.png')
+        @image_ball = Image.load('images/srrow_2.png')
+        ## end ## 
+
         @image_player.set_color_key(C_BLACK)
         @image_ball.set_color_key(C_BLACK)
 
