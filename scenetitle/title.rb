@@ -8,7 +8,8 @@ module Title
         end
 
         def play
-            Window.draw_font(250, 280, "タイトル画面", @font)
+            Window.draw_font(280, 280, "タイトル名", @font)
+            Window.draw_font(173, 320, "Press the button to start!!", @font)
             
             @bc = @board.digital_read(3) if @frm == 30
             @frm += 1
