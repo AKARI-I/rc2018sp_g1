@@ -1,11 +1,11 @@
 require 'dxruby'
 
-bg = Image.load('2d-game-backgrounds-470x300.jpg')
+bg = Image.load('background5.jpg', nil, nil, 600, 700)
 banana = Image.load('fruit_banana2.png')
 
 
-Window.width = 800
-Window.height = 600
+Window.width = 600
+Window.height = 700
 
 
 
@@ -13,11 +13,11 @@ Window.height = 600
 Window.loop do
 	@banana = banana
 	Window.draw(0, 0, bg)
-	Window.draw(0, 500, @banana)
-	Window.draw(100, 500, @banana)
-	Window.draw(200, 500, @banana)
-	Window.draw(300, 500, @banana)
-	Window.draw(400, 500, @banana)
+	Window.draw(0, 460, @banana)
+	Window.draw(100, 460, @banana)
+	Window.draw(200, 460, @banana)
+	Window.draw(300, 460, @banana)
+	Window.draw(400, 460, @banana)
 	break if Input.key_push?(K_ESCAPE)
     
 end
