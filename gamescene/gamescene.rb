@@ -5,6 +5,7 @@ require_relative 'director'
 
 ## merge
 require_relative 'food'
+require_relative 'showTimePoint'
 
 module Game
     class Director
@@ -26,6 +27,10 @@ module Game
             ## food ##
             @food = Food.new()
             ## end ##
+
+            ## showTimePoint ##
+            @showTimePoint = TimePoint.new(3)
+            ## end ##
         end
 
         def play
@@ -40,11 +45,16 @@ module Game
             @enemy.play
             ## end ##
 
+            ## showTimePoint ##
+            @showTimePoint.draw_time_point
+            ## end ##
+
             if @frm == 30
                 @dx = @board.digital_read(4) 
                 @button = @board.digital_read(3)
                 p "katamuki:", @dx
                 p "button:", @button
+                @showTimePoint.add_point(4)
             end
             @frm += 1
             @frm = 1 if @frm > 30
