@@ -3,13 +3,16 @@ module Title
 #board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
         def initialize(board)
         	@board = board
-            @font = Font.new(32, "ＭＳ　Pゴシック")
+        	@font_t = Font.new(60, "ＭＳ ゴシック", :weight => true)
+            @font = Font.new(40, "ＭＳ ゴシック")
             @frm = 0
+            @t_bg = Image.load('title_background5.jpg')
         end
 
         def play
-            Window.draw_font(280, 280, "タイトル名", @font)
-            Window.draw_font(173, 320, "Press the button to start!!", @font)
+        	Window.draw(0, 0, @t_bg )
+            Window.draw_font_ex(100, 280, "バナナを守れ！", @font_t, {:edge_color => [255,255,0], :edge => true, :edge_width => 10, :edge_level => 9})
+            Window.draw_font(35, 400, "Press the button to start!!", @font)
             
             @bc = @board.digital_read(3) if @frm == 30
             @frm += 1

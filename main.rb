@@ -1,14 +1,14 @@
 require 'dxruby'
 require 'smalrubot'
 # require_relative 'player'
-# require_relative 'scene'
+#require_relative 'scene'
 # require_relative 'scene_game\director'
 # require_relative 'scene_title\director'
 require_relative 'scenetitle\title'
 
 
-Window.width = 700
-Window.height = 600
+Window.width = 600
+Window.height = 700
 
 board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
 
