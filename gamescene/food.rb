@@ -7,19 +7,23 @@
 	#end
 #end
 class Food
-	def initialize
+	def initialize(food_fig)
 		@bg = Image.load('images/game_background.jpg', nil, nil, 600, 700)
 		@banana = Image.load('images/banana.png')
 		@banana.set_color_key(C_WHITE)
+		@food_fig = food_fig
 	end
 
 	def draw_food
 		
 		# Window.width = 600
 		# Window.height = 700
-		xy_list = make_x(7)
+		xy_list = make_x(@food_fig)
+		if @food_fig < 1
+			Scene.move_to(:nomalEnding)
+		end
 
-		Window.draw(  0,   0, @bg)
+		Window.draw( 0,  0, @bg)
 		xy_list.each do |xy|
 			Window.draw(xy[0], xy[1], @banana)
 		end
@@ -45,6 +49,10 @@ class Food
 		end
 		# p xy
 		return xy
+	end
+
+	def reduce_food
+		@food_fig-= 1
 	end
 
 

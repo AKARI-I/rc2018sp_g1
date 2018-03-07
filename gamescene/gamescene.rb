@@ -27,7 +27,7 @@ module Game
             ## end ##
 
             ## food ##
-            @food = Food.new()
+            # @food = Food.new(7)
             ## end ##
 
             ## showTimePoint ##
@@ -37,7 +37,7 @@ module Game
 
         def play(score)
             ## food ##
-            @food.draw_food
+            # @food.draw_food
             ## end ##
 
             @player.draw_player

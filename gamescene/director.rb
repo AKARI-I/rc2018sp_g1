@@ -11,6 +11,10 @@ module EnemyDirector
       @showTimePoint = TimePoint.new(0.5)
       ## end ##
 
+      ## to show and reduce food ##
+      @food = Food.new(7)
+      ## end ##
+
       ## change images ##
 
       # @enemy_monkey = Enemy.new(25, 0, "images/monkey.png")
@@ -24,6 +28,10 @@ module EnemyDirector
 
       ## end ##
       @bg_img = Image.load("images/game_background.jpg")
+
+      ## test @food.reduce_food ##
+      @tmp = 0
+      ##
     end
 
     def play
@@ -32,11 +40,26 @@ module EnemyDirector
       ## end ##
       Window.decide #背景の描画予約
 
+
+      ## show 
+      @food.draw_food
+      ## end ##
+
+      ## test @food.reduce_food ##
+      if @tmp > 120
+        @food.reduce_food
+        @tmp = 0
+      elsif
+        @tmp += 1
+      end
+      
+
       ## show time and point ##
       @showTimePoint.add_point(5) # <- test
       score = @showTimePoint.draw_time_point
       # p "score",score
       ## end ##
+
 
       if $goal_flg == 0 then
         @enemy_monkey.move
