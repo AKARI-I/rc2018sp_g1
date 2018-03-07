@@ -3,6 +3,9 @@ require_relative 'director'
 # require_relative 'enemy'
 # require 'smalrubot'
 
+## merge
+require_relative 'food'
+
 module Game
     class Director
         def initialize(board)
@@ -19,9 +22,17 @@ module Game
             ## Enemy ##
             @enemy = EnemyDirector::Director.new
             ## end ##
+
+            ## food ##
+            @food = Food.new()
+            ## end ##
         end
 
         def play
+            ## food ##
+            @food.draw_food
+            ## end ##
+
             @player.draw_player
             @player.draw_ball
 
