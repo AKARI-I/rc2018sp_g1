@@ -9,7 +9,7 @@ module Title
             @t_bg = Image.load('images/title_background.jpg')
         end
 
-        def play
+        def play(score)
         	Window.draw(0, 0, @t_bg )
             Window.draw_font_ex(100, 280, "バナナを守れ！", @font_t, {:edge_color => [255,255,0], :edge => true, :edge_width => 10, :edge_level => 9})
             Window.draw_font(55, 400, "Please press the button!!", @font)
@@ -25,6 +25,8 @@ module Title
             
             Scene.move_to(:game) if @bc == 1
             # シーンを変える
+
+            return 0
         end
     end
 end

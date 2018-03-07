@@ -35,7 +35,7 @@ module Game
             ## end ##
         end
 
-        def play
+        def play(score)
             ## food ##
             @food.draw_food
             ## end ##
@@ -44,7 +44,7 @@ module Game
             @player.draw_ball
 
             ## Enemy ##
-            @enemy.play
+            score = @enemy.play
             ## end ##
 
             ## showTimePoint ##
@@ -81,6 +81,8 @@ module Game
             # else
             #     Scene.move_to(:bad_endding)
             # end
+
+            return score
         end
     end
 end

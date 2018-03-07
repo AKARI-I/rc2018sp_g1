@@ -13,6 +13,7 @@ class TimePoint
         Window.draw(0, 0, @bg)
         draw_time
         draw_point
+        return @score
     end
 
     def draw_time

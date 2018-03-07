@@ -33,7 +33,9 @@ module EnemyDirector
       Window.decide #背景の描画予約
 
       ## show time and point ##
-      @showTimePoint.draw_time_point
+      @showTimePoint.add_point(5) # <- test
+      score = @showTimePoint.draw_time_point
+      # p "score",score
       ## end ##
 
       if $goal_flg == 0 then
@@ -45,6 +47,8 @@ module EnemyDirector
         @char2.draw
         @char3.draw
       end
+
+      return score
     end
   end
 end

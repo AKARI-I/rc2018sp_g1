@@ -12,8 +12,12 @@ class Scene
     @@current_scene_name = scene_name.to_sym
   end
 
-
-  def self.play
-    @@scenes[@@current_scene_name].play
+=begin
+  def self.play(score)
+    @@scenes[@@current_scene_name].play(score)
+  end
+=end
+  def self.play(score)
+    @@scenes[@@current_scene_name].play(score)
   end
 end

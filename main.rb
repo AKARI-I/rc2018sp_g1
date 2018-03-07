@@ -21,9 +21,12 @@ Scene.add(NomalEnding::Director.new, :nomalEnding)
 # Scene = Game::Director.new(board)
 Scene.move_to(:title)
 
+score = 0
+
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
   # ゲームを終了させる
-  Scene.play
+  score = Scene.play(score)
+  p score
   # director.play
 end
