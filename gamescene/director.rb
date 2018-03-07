@@ -12,7 +12,7 @@ module EnemyDirector
       # @char2 = Enemy.new(225, 0, "images/enemy2.png")
       # @char3 = Enemy.new(425, 0, "images/enemy3.png")
 
-      
+
       @enemy_monkey = Enemy.new(25, 0, "images/monky_2.png")
       @char2 = Enemy.new(225, 0, "images/elephant_2.png")
       @char3 = Enemy.new(425, 0, "images/crocodile_2.png")
