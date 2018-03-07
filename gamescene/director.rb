@@ -16,7 +16,8 @@ module EnemyDirector
       @enemy_monkey    = Enemy.new(25,  0, "images/monky_2.png")
       @enemy_snake     = Enemy.new(125, 0, "images/snake_2.png")
       @enemy_elephant  = Enemy.new(225, 0, "images/elephant_2.png")
-      @enemy_crocodile = Enemy.new(425, 0, "images/crocodile_2.png")
+      @enemy_crocodile = Enemy.new(325, 0, "images/crocodile_2.png")
+      @enemy_gorilla   = Enemy.new(425, 0, "images/gorilla_2.png")
 
       ## end ##
       @bg_img = Image.load("images/background.png")
@@ -33,11 +34,13 @@ module EnemyDirector
         @enemy_snake.move
         @enemy_elephant.move
         @enemy_crocodile.move
+        @enemy_gorilla.move
 
         @enemy_monkey.draw
         @enemy_snake.draw
         @enemy_elephant.draw
         @enemy_crocodile.draw
+        @enemy_gorilla.draw
       end
     end
   end
