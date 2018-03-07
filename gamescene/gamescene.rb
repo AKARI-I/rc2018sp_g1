@@ -33,6 +33,10 @@ module Game
             ## showTimePoint ##
             # @showTimePoint = TimePoint.new(0.5)
             ## end ##
+
+            ## test @player.upgrade_ball ##
+            @tmp = 0
+            ## end ##
         end
 
         def play(score)
@@ -48,6 +52,15 @@ module Game
             
             @player.draw_player
             @player.draw_ball
+
+            ## test @player.upgrade_ball ##
+            if @tmp > 90
+                @player.upgrade_ball
+                @tmp = 0
+            else
+                @tmp += 1
+            end
+            ## end ##
 
             ## showTimePoint ##
             # @showTimePoint.draw_time_point

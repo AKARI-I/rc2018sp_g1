@@ -31,7 +31,7 @@ module EnemyDirector
 
       ## test @food.reduce_food ##
       @tmp = 0
-      ##
+      ## end ##
     end
 
     def play
@@ -52,7 +52,7 @@ module EnemyDirector
       elsif
         @tmp += 1
       end
-      
+      ## end ##
 
       ## show time and point ##
       @showTimePoint.add_point(5) # <- test
