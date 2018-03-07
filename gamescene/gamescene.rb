@@ -90,7 +90,7 @@ module Game
 
             ## to check ball_xy ##
             ball_xy = @player.ball_xy
-            p ball_xy
+            # p ball_xy
             ## end ##
 
             # if @score > 100

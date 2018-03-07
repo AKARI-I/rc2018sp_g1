@@ -3,6 +3,7 @@ require 'smalrubot'
 require_relative 'scene'
 require_relative 'gamescene\gamescene'
 require_relative 'scenetitle\title'
+require_relative 'manualscene\manual'
 require_relative 'endingscene\director'
 
 Window.width = 600
@@ -16,6 +17,7 @@ board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
 # director = Director.new
 
 Scene.add(Title::Director.new(board), :title)
+Scene.add(Manual::Director.new(board), :manual)
 Scene.add(Game::Director.new(board), :game)
 Scene.add(NomalEnding::Director.new, :nomalEnding)
 # Scene = Game::Director.new(board)

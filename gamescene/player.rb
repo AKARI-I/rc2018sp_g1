@@ -16,7 +16,9 @@ class Player
         # @image_player = Image.load('./gamescene/a.png')
         # @image_ball = Image.load('./gamescene/b.png')
 
-        @image_player = Image.load('images/player_woman.png')
+        # @image_player = Image.load('images/player_woman.png') # <-　著作権上 △ 
+        @image_player = Image.load('images/player_man.png')
+
         # @image_ball = Image.load('images/ball_weapon.png')
         ## end ## 
 
@@ -114,7 +116,7 @@ class Player
 
         @ball_xy.each do |xy|
             Window.draw(xy[0], xy[1], @image_balls[@ball_level])
-            p @ball_level
+            # p @ball_level
             if xy[1] > -5 and xy[1] < 900
                 xy[1] -= 20
             elsif xy[1] < 0
