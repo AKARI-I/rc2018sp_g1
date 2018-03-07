@@ -13,9 +13,10 @@ module EnemyDirector
       # @char3 = Enemy.new(425, 0, "images/enemy3.png")
 
 
-      @enemy_monkey = Enemy.new(25, 0, "images/monky_2.png")
-      @char2 = Enemy.new(225, 0, "images/elephant_2.png")
-      @char3 = Enemy.new(425, 0, "images/crocodile_2.png")
+      @enemy_monkey    = Enemy.new(25,  0, "images/monky_2.png")
+      @enemy_snake     = Enemy.new(125, 0, "images/snake_2.png")
+      @enemy_elephant  = Enemy.new(225, 0, "images/elephant_2.png")
+      @enemy_crocodile = Enemy.new(425, 0, "images/crocodile_2.png")
 
       ## end ##
       @bg_img = Image.load("images/background.png")
@@ -29,12 +30,14 @@ module EnemyDirector
 
       if $goal_flg == 0 then
         @enemy_monkey.move
-        @char2.move
-        @char3.move
+        @enemy_snake.move
+        @enemy_elephant.move
+        @enemy_crocodile.move
 
         @enemy_monkey.draw
-        @char2.draw
-        @char3.draw
+        @enemy_snake.draw
+        @enemy_elephant.draw
+        @enemy_crocodile.draw
       end
     end
   end
