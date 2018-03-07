@@ -52,8 +52,8 @@ module Game
             if @frm == 30
                 @dx = @board.digital_read(4) 
                 @button = @board.digital_read(3)
-                p "katamuki:", @dx
-                p "button:", @button
+                puts "katamuki: #{@dx}"
+                puts "button: #{@button}"
                 @showTimePoint.add_point(4)
             end
             @frm += 1

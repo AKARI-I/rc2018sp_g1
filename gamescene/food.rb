@@ -8,8 +8,9 @@
 #end
 class Food
 	def initialize
-		@bg = Image.load('images/background5.jpg', nil, nil, 600, 700)
-		@banana = Image.load('images/fruit_banana2_2.png')
+		@bg = Image.load('images/game_background.jpg', nil, nil, 600, 700)
+		@banana = Image.load('images/banana.png')
+		@banana.set_color_key(C_WHITE)
 	end
 
 	def draw_food

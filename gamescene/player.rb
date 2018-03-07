@@ -15,12 +15,17 @@ class Player
         # @image_player = Image.load('./gamescene/a.png')
         # @image_ball = Image.load('./gamescene/b.png')
 
-        @image_player = Image.load('images/player2_2.png')
-        @image_ball = Image.load('images/srrow_2.png')
+        @image_player = Image.load('images/player_woman.png')
+        @image_ball = Image.load('images/ball_weapon.png')
         ## end ## 
 
-        @image_player.set_color_key(C_BLACK)
-        @image_ball.set_color_key(C_BLACK)
+        ## change images ##
+        # @image_player.set_color_key(C_BLACK)
+        # @image_ball.set_color_key(C_BLACK)
+
+        @image_player.set_color_key(C_WHITE)
+        @image_ball.set_color_key(C_WHITE)
+        ## end ##
 
         @haba = haba
         @rail_max = 525

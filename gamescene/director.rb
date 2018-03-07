@@ -13,12 +13,12 @@ module EnemyDirector
       # @char3 = Enemy.new(425, 0, "images/enemy3.png")
 
       
-      @enemy_monkey = Enemy.new(25, 0, "images/monky_2.png")
-      @char2 = Enemy.new(225, 0, "images/elephant_2.png")
-      @char3 = Enemy.new(425, 0, "images/crocodile_2.png")
+      @enemy_monkey = Enemy.new(25, 0, "images/monky_enemy.png")
+      @char2 = Enemy.new(225, 0, "images/elephant_enemy.png")
+      @char3 = Enemy.new(425, 0, "images/crocodile_enemy.png")
 
       ## end ##
-      @bg_img = Image.load("images/background.png")
+      @bg_img = Image.load("images/game_background.jpg")
     end
 
     def play
