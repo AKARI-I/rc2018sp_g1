@@ -5,7 +5,7 @@ class TimePoint
         @bg = Image.load('images/white.png')
         @font = Font.new(32, "ＭＳ　Pゴシック")
         # @time_limit = Time.now + time_limit_min_int * 60
-        @frm_for_time = time_limit_min_int * 60 * 60
+        @frm_for_time = (time_limit_min_int * 60 * 60).to_i
         @score = 0
     end
 

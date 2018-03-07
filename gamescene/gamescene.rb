@@ -3,9 +3,11 @@ require_relative 'director'
 # require_relative 'enemy'
 # require 'smalrubot'
 
-## merge
+## merge ##
 require_relative 'food'
-require_relative 'showTimePoint'
+## end ##
+
+# require_relative 'showTimePoint'
 
 module Game
     class Director
@@ -29,7 +31,7 @@ module Game
             ## end ##
 
             ## showTimePoint ##
-            @showTimePoint = TimePoint.new(0.5)
+            # @showTimePoint = TimePoint.new(0.5)
             ## end ##
         end
 
@@ -46,7 +48,7 @@ module Game
             ## end ##
 
             ## showTimePoint ##
-            @showTimePoint.draw_time_point
+            # @showTimePoint.draw_time_point
             ## end ##
 
             if @frm == 30
@@ -54,7 +56,7 @@ module Game
                 @button = @board.digital_read(3)
                 puts "katamuki: #{@dx}"
                 puts "button: #{@button}"
-                @showTimePoint.add_point(4)
+                # @showTimePoint.add_point(4)
             end
             @frm += 1
             @frm = 1 if @frm > 30
