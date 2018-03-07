@@ -1,11 +1,11 @@
 class TimePoint
 
 
-    def initialize(time_limit_min_int)
+    def initialize(time_limit_min)
         @bg = Image.load('images/white.png')
         @font = Font.new(32, "ＭＳ　Pゴシック")
         # @time_limit = Time.now + time_limit_min_int * 60
-        @frm_for_time = (time_limit_min_int * 60 * 60).to_i
+        @frm_for_time = (time_limit_min * 60 * 60).to_i
         @score = 0
     end
 

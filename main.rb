@@ -27,6 +27,5 @@ Window.loop do
   break if Input.key_push?(K_ESCAPE)
   # ゲームを終了させる
   score = Scene.play(score)
-  p score
-  # director.play
+  puts "score: #{score}"
 end

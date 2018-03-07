@@ -7,6 +7,7 @@ require 'dxruby'
 class Player
     attr_accessor :x
     attr_accessor :push_button # push 1
+    attr_accessor :ball_xy
   
     def initialize(haba)
         # @board = board
