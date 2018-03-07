@@ -29,7 +29,7 @@ module Game
             ## end ##
 
             ## showTimePoint ##
-            @showTimePoint = TimePoint.new(3)
+            @showTimePoint = TimePoint.new(0.5)
             ## end ##
         end
 

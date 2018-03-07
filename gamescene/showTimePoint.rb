@@ -17,6 +17,9 @@ class TimePoint
 
     def draw_time
         @frm_for_time -= 1
+        if @frm_for_time < 0
+            Scene.move_to(:nomalEnding)
+        end
         showMin = @frm_for_time / 3600
         showSec = @frm_for_time / 60 - showMin * 60
         Window.draw_font(20, 0, "#{showMin}:#{format("%02d",showSec)}", @font, :color => [0,0,0])
