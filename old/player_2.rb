@@ -10,38 +10,27 @@ class Player
   
     def initialize(haba)
         # @board = board
-
-        ## change images ##
-        # @image_player = Image.load('./gamescene/a.png')
-        # @image_ball = Image.load('./gamescene/b.png')
-
-        @image_player = Image.load('images/player2_2.png')
-        @image_ball = Image.load('images/srrow_2.png')
-        ## end ## 
-
+        @image_player = Image.load('./gamescene/a.png')
+        @image_ball = Image.load('./gamescene/b.png')
         @image_player.set_color_key(C_BLACK)
         @image_ball.set_color_key(C_BLACK)
 
         @haba = haba
-        @rail_max = 525
-        @rail_min = 25
+        @rail_max = 500
+        @rail_min = 0
   
-        @x = 25
-        @y = 600 - 50
+        @x = 0
+        @y = 600
 
         @dx = 0
         
         @frm = 1
         @push_button = 0
         @show_ball = 0
+        @x_ball = 0
+        @y_ball = 0
 
-        @ball_xy = []
-        max_ball = 30
-        for i in 0..max_ball do
-            @ball_xy << [1000, 1000]
-        end
         @add_ball = 0
-        @button_cnt = 0
     end
   
     def draw_player
@@ -52,6 +41,8 @@ class Player
         @frm = 0 if @frm > frm_kankaku
 
         @dx = 0
+        # @x += Input.x
+        # @y += Input.y
     end
 
     def plus_player
@@ -66,6 +57,27 @@ class Player
         end
     end
 
+
+=begin
+    def draw_ball
+        if @push_button > 0
+            @show_ball = 1
+            @y_ball = @y
+            @x_ball = @x
+            @push_button = 0
+        end
+        
+        if @show_ball > 0
+            for i in (0..9)
+                Window.draw(@x_ball[i], @y_ball[i], @image_ball)
+            end
+            @y_ball -= 5
+            if @y_ball < 0
+                @show_ball = 0
+            end
+        end
+    end  
+=end
     def draw_ball
         if @push_button < 1
             @button_cnt = 0
