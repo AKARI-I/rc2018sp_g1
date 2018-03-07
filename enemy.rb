@@ -8,7 +8,7 @@ class Enemy
 
   def move
     @y += @dy
-    @dy = -@dy if @y > 600 || @y < 0
+    $goal_flg = 1 if @y > 600 || @y < 0
   end
 
   def draw
