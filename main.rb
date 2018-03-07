@@ -1,8 +1,8 @@
 require 'dxruby'
 require 'smalrubot'
-# require_relative 'director'
-# require_relative 'enemy'
+
 require_relative 'gamescene\gamescene'
+require_relative 'scenetitle\title'
 
 
 Window.width = 600
@@ -15,6 +15,7 @@ board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
 
 # director = Director.new
 Scene = Game::Director.new(board)
+Scene = Title::Director.new(board)
 
 Window.loop do
   break if Input.key_push?(K_ESCAPE)
