@@ -44,10 +44,13 @@ module Game
             # @food.draw_food
             ## end ##
 
-
-
+            ## to check ball_xy ##
+            ball_xy = @player.ball_xy
+            # p ball_xy
+            ## end ##
+            
             ## Enemy ##
-            score = @enemy.play
+            score = @enemy.play(ball_xy)
             ## end ##
             
             @player.draw_player
@@ -88,10 +91,7 @@ module Game
                 @player.push_button = 0
             end
 
-            ## to check ball_xy ##
-            ball_xy = @player.ball_xy
-            # p ball_xy
-            ## end ##
+
 
             # if @score > 100
             #     Scene.move_to(:happy_ending)
