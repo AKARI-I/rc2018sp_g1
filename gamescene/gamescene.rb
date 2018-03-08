@@ -14,14 +14,14 @@ module Game
         def initialize(board)
             haba = 100
             @player = Player.new(haba)
-            @board = board 
+            @board = board
             # @board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
             # 上記の書き方だと、2回"board"が初期化されてしまう
             # @board = board
             @frm = 1
             @dx = 0
             @button = 0
-            
+
             ## Enemy ##
             @enemy = EnemyDirector::Director.new
             ## end ##
@@ -67,7 +67,7 @@ module Game
             ## end ##
 
             if @frm == 30
-                @dx = @board.digital_read(4) 
+                @dx = @board.digital_read(4)
                 @button = @board.digital_read(3)
                 puts "katamuki: #{@dx}"
                 puts "button: #{@button}"

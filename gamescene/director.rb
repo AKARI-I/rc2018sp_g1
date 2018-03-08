@@ -5,26 +5,14 @@ module EnemyDirector
   class Director
     def initialize
       $goal_flg = 0 #グローバル変数
-      #@enemy_positionX = [25, 125, 225, 325, 425, 525] #enemyのx座標(6レーン分)
 
-      ## to show and reduce food ##
-      @food = Food.new(7)
-      ## end ##
+      rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
-      ## to show time and point and add point ##
-      @showTimePoint = TimePoint.new(0.5, @food)
-      ## end ##
-
-      ## change images ##
-
-      # @enemy_monkey = Enemy.new(25, 0, "images/monkey.png")
-      # @char2 = Enemy.new(225, 0, "images/enemy2.png")
-      # @char3 = Enemy.new(425, 0, "images/enemy3.png")
-
-      
-      @enemy_monkey = Enemy.new(25, 0, "images/monky_enemy.png")
-      @char2 = Enemy.new(225, 0, "images/elephant_enemy.png")
-      @char3 = Enemy.new(425, 0, "images/crocodile_enemy.png")
+      @enemy_monkey    = Enemy.new(rand_x[rand(6)], 0, "images/monky_2.png")
+      @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images/snake_2.png")
+      @enemy_elephant  = Enemy.new(rand_x[rand(6)], 0, "images/elephant_2.png")
+      @enemy_crocodile = Enemy.new(rand_x[rand(6)], 0, "images/crocodile_2.png")
+      @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images/gorilla_2.png")
 
       ## end ##
       @bg_img = Image.load("images/game_background.jpg")
@@ -63,12 +51,16 @@ module EnemyDirector
 
       if $goal_flg == 0 then
         @enemy_monkey.move
-        @char2.move
-        @char3.move
+        @enemy_snake.move
+        @enemy_elephant.move
+        @enemy_crocodile.move
+        @enemy_gorilla.move
 
         @enemy_monkey.draw
-        @char2.draw
-        @char3.draw
+        @enemy_snake.draw
+        @enemy_elephant.draw
+        @enemy_crocodile.draw
+        @enemy_gorilla.draw
       end
 
       return score
