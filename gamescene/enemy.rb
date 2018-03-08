@@ -9,7 +9,7 @@ class Enemy
     @image = Image.load(image_file)
     # @image.set_color_key([0, 0, 0])
     @image.set_color_key(C_WHITE)
-    @dy = 1.5
+    @dy = 1.6
     @x = 1000
     @show_mode = 1
     @show_status = 1

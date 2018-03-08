@@ -96,7 +96,7 @@ module EnemyDirector
       @ball_enemy_dxdy.each do |bedd|
         if bedd * @ball_enemy_dxdy_old[i] < 0
           @enemy[@enemy_level][i].show_mode = 1
-          pnt = 5
+          pnt = 4
           @showTimePoint.add_point(pnt)
           @upgrade_enemy_status += pnt
           @enemy_shown[i] = 0
