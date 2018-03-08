@@ -14,11 +14,7 @@ module EnemyDirector
       @showTimePoint = TimePoint.new(0.5, @food)
       ## end ##
 
-      ## change images ##
-
-      # @enemy_monkey = Enemy.new(25, 0, "images/monkey.png")
-      # @char2 = Enemy.new(225, 0, "images/enemy2.png")
-      # @char3 = Enemy.new(425, 0, "images/enemy3.png")
+      rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
       ## merge ##
       # @enemy_monkey = Enemy.new(25, 0, "images/monky_enemy.png")
@@ -26,7 +22,7 @@ module EnemyDirector
       # @char3 = Enemy.new(425, 0, "images/crocodile_enemy.png")
       ## end ##
 
-      rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
+      # rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
       @enemy_monkey    = Enemy.new(rand_x[rand(6)], 0, "images/monky_enemy.png")
       @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images/snake_enemy.png")
@@ -49,7 +45,7 @@ module EnemyDirector
       Window.decide #背景の描画予約
 
 
-      ## show 
+      ## show
       @food.draw_food
       ## end ##
 
