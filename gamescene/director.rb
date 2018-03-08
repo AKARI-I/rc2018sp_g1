@@ -1,5 +1,9 @@
 require_relative 'enemy'
 require_relative 'enemy_monkey'
+require_relative 'enemy_snake'
+require_relative 'enemy_elephant'
+require_relative 'enemy_crocodile'
+require_relative 'enemy_gorilla'
 require_relative 'showTimePoint'
 require_relative 'food'
 
@@ -20,10 +24,10 @@ module EnemyDirector
       rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
       @enemy_monkey    = Enemy_monkey.new(rand_x[rand(6)])
-      @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images_0/snake_2.png")
-      @enemy_elephant  = Enemy.new(rand_x[rand(6)], 0, "images_0/elephant_2.png")
-      @enemy_crocodile = Enemy.new(rand_x[rand(6)], 0, "images_0/crocodile_2.png")
-      @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images_0/gorilla_2.png")
+      @enemy_snake     = Enemy_snake.new(rand_x[rand(6)])
+      @enemy_elephant  = Enemy_elephant.new(rand_x[rand(6)])
+      @enemy_crocodile = Enemy_crocodile.new(rand_x[rand(6)])
+      @enemy_gorilla   = Enemy_gorilla.new(rand_x[rand(6)])
 
       ## end ##
       @bg_img = Image.load("images/game_background.jpg")
