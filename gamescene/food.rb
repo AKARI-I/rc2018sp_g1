@@ -60,7 +60,7 @@ class Food
 	end
 
 	def reduce_food
-		@food_fig-= 1
+		@food_fig -= 1
 	end
 
 

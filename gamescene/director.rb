@@ -7,7 +7,7 @@ module EnemyDirector
       $goal_flg = 0 #グローバル変数
 
       ## to show and reduce food ##
-      @food = Food.new(7)
+      @food = Food.new(20)
       ## end ##
 
       ## to show time and point and add point ##
@@ -16,21 +16,14 @@ module EnemyDirector
 
       rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
       @rand_x = rand_x
-
-      # @enemy_monkey    = Enemy.new(rand_x[rand(6)], 0, "images/monky_2.png")
-      # @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images/snake_2.png")
-      # @enemy_elephant  = Enemy.new(rand_x[rand(6)], 0, "images/elephant_2.png")
-      # @enemy_crocodile = Enemy.new(rand_x[rand(6)], 0, "images/crocodile_2.png")
-      # @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images/gorilla_2.png")
-
-
+=begin
       @enemy_menbers = []
 
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/monky_enemy.png")
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/snake_enemy.png")
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/elephant_enemy.png")
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/crocodile_enemy.png")
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/gorilla_boss_enemy.png")
+      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/monky_enemy.png", @food)
+      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/snake_enemy.png", @food)
+      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/elephant_enemy.png", @food)
+      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/crocodile_enemy.png", @food)
+      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/gorilla_boss_enemy.png", @food)
 
       temp = []
       @enemy = []
@@ -41,7 +34,39 @@ module EnemyDirector
         @enemy << temp
         temp = []
       end
-      p @enemy
+=end  
+      @enemy = []
+      temp2 = []
+      10.times do
+        temp2 << Enemy.new(rand_x[rand(6)], 0, "images/monky_enemy.png", @food)
+      end
+      @enemy << temp2
+      temp2 = []
+      10.times do 
+        temp2 << Enemy.new(rand_x[rand(6)], 0, "images/snake_enemy.png", @food)
+      end
+      @enemy << temp2     
+      temp2 = [] 
+      10.times do 
+        temp2 << Enemy.new(rand_x[rand(6)], 0, "images/elephant_enemy.png", @food)
+      end
+      @enemy << temp2      
+      temp2 = []
+      10.times do 
+        temp2 << Enemy.new(rand_x[rand(6)], 0, "images/crocodile_enemy.png", @food)
+      end
+      @enemy << temp2 
+      temp2 = []     
+      10.times do 
+        temp2 << Enemy.new(rand_x[rand(6)], 0, "images/gorilla_boss_enemy.png", @food)
+      end
+      @enemy << temp2     
+
+
+
+      @enemy.each do |emy|
+        p emy.size
+      end
       ## end ##
       @bg_img = Image.load("images/game_background.jpg")
 
@@ -51,6 +76,7 @@ module EnemyDirector
       @i = 0
       @enemy_shown = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       @j = 1
+      @upgrade_enemy_status = 0
     end
 
     def play(ball_xy)
@@ -71,24 +97,26 @@ module EnemyDirector
       ## end ##
 
       # if $goal_flg == 0 then
-        i = 0
-        @enemy[@enemy_level].each do |emy|
+      i = 0
+      @enemy[@enemy_level].each do |emy|
 
-        # @enemy[@enemy_level].each do |emy|
-          @ball_enemy_dxdy[i] = check_ball(emy.draw(@rand_x[@j]), ball_xy)
-          @j += 1
-          @j = 0 if @j > 5
-          
-          # p @ball_enemy_dxdy[i]
-          i += 1
-        end
+      # @enemy[@enemy_level].each do |emy|
+        @ball_enemy_dxdy[i] = check_ball(emy.draw(@rand_x[@j]), ball_xy)
+        @j += 1
+        @j = 0 if @j > 5
+        
+        # p @ball_enemy_dxdy[i]
+        i += 1
+      end
         # @enemy_menbers[@enemy_level].draw
       #end
       i = 0
       @ball_enemy_dxdy.each do |bedd|
         if bedd * @ball_enemy_dxdy_old[i] < 0
           @enemy[@enemy_level][i].show_mode = 1
-          @showTimePoint.add_point(10)
+          pnt = 5
+          @showTimePoint.add_point(pnt)
+          @upgrade_enemy_status += pnt
           @enemy_shown[i] = 0
         else
           @enemy[@enemy_level][i].show_mode = 0
@@ -99,7 +127,10 @@ module EnemyDirector
 
       add_enemy
 
-      
+      if @upgrade_enemy_status > 100
+        @upgrade_enemy_status = 0
+        upgrade_enemy
+      end
 
       return score
     end
