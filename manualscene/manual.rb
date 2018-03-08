@@ -2,6 +2,7 @@ module Manual
     class Director
     #board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
         def initialize(board)
+          p ("manual.rb-initialize/5")
         	@board = board
         	@font_t = Font.new(60, "ＭＳ ゴシック", :weight => true)
             @font = Font.new(40, "ＭＳ ゴシック")
@@ -11,6 +12,7 @@ module Manual
         end
 
         def play(score)
+          p ("manual.rb-play/15")
         	Window.draw(0, 0, @t_bg )
             Window.draw_font_ex(100, 280, "取説", @font_t, {:edge_color => [255,255,0], :edge => true, :edge_width => 10, :edge_level => 9})
             Window.draw_font(55, 400, "Please press the button!!", @font)

@@ -2,6 +2,7 @@ class TimePoint
 
 
     def initialize(time_limit_min, food_object)
+      p ("showTimePoint.rb-initialize/5")
         @bg = Image.load('images/white.png')
         @font = Font.new(32, "ＭＳ　Pゴシック")
         # @time_limit = Time.now + time_limit_min_int * 60
@@ -13,6 +14,7 @@ class TimePoint
     end
 
     def draw_time_point
+      p ("showTimePoint-draw_time_point/17")
         Window.draw(0, 0, @bg)
         draw_time
         draw_point
@@ -20,6 +22,7 @@ class TimePoint
     end
 
     def draw_time
+      p ("showTimePoint-draw_time/25")
         if @frm_for_time < 1 or @food.food_fig < 1
             @playing_game = 0
 			@delay_ending_cnt += 1
@@ -36,10 +39,12 @@ class TimePoint
     end
 
     def draw_point
+      p ("showTimePoint-draw_point/42")
         Window.draw_font(0, 36, "Your Score: #{format("%4d",@score)}", @font, :color => [0,0,0])
     end
 
     def add_point(score)
+      p ("showTimePoint-add_point/47")
         if @playing_game > 0
             @score += score
         end

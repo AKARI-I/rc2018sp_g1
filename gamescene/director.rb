@@ -6,6 +6,7 @@ require_relative 'food'
 module EnemyDirector
   class Director
     def initialize
+      p ("director.rb-initialize/9")
       $goal_flg = 0
 
       ## to show and reduce food ##
@@ -33,6 +34,7 @@ module EnemyDirector
     end
 
     def play
+      p ("director.rb-play/37")
       ## change for debug ##
       # Window.draw(0, 0, @bg_img)
       ## end ##

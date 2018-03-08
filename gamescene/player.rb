@@ -8,19 +8,20 @@ class Player
     attr_accessor :x
     attr_accessor :push_button # push 1
     attr_accessor :ball_xy
-  
+
     def initialize(haba)
+      p ("player.rb-initialize/13")
         # @board = board
 
         ## change images ##
         # @image_player = Image.load('./gamescene/a.png')
         # @image_ball = Image.load('./gamescene/b.png')
 
-        # @image_player = Image.load('images/player_woman.png') # <-　著作権上 △ 
+        # @image_player = Image.load('images/player_woman.png') # <-　著作権上 △
         @image_player = Image.load('images/player_man.png')
 
         # @image_ball = Image.load('images/ball_weapon.png')
-        ## end ## 
+        ## end ##
 
 
         # 木, 石, パチンコ, 弓, 銃
@@ -42,7 +43,7 @@ class Player
         @image_balls << Image.load('images/ball_weapon.png')
         @image_balls << Image.load('images/srrow_weapon.png')
         @image_balls << Image.load('images/bullet_weapon.png')
-        
+
         @image_balls.each do |image_ball|
             image_ball.set_color_key(C_WHITE)
         end
@@ -51,12 +52,12 @@ class Player
         @haba = haba
         @rail_max = 525
         @rail_min = 25
-  
+
         @x = 25
         @y = 600 - 50
 
         @dx = 0
-        
+
         @frm = 1
         @push_button = 0
         @show_ball = 0
@@ -69,8 +70,9 @@ class Player
         @add_ball = 0
         @button_cnt = 0
     end
-  
+
     def draw_player
+      p ("player.rb-draw_player/75")
         Window.draw(@x, @y, @image_player)
         frm_kankaku = 30
         @frm += 1
@@ -81,18 +83,21 @@ class Player
     end
 
     def plus_player
+      p ("player.rb-plus_player/86")
         if @x < @rail_max
             @dx += @haba
         end
     end
 
     def minus_player
+      p ("player.rb-minus_player/93")
         if @x > @rail_min
             @dx -= @haba
         end
     end
 
     def draw_ball
+      p ("player.rb-draw_ball/100")
         if @push_button < 1
             @button_cnt = 0
         elsif @button_cnt > 0 and @button_cnt < 12 and @push_button > 0
@@ -126,8 +131,9 @@ class Player
     end
 
     def upgrade_ball
+      p ("player.rb-upgrade_ball/134")
         if @ball_level < 4
             @ball_level += 1
         end
     end
-end 
+end

@@ -12,6 +12,7 @@ require_relative 'food'
 module Game
     class Director
         def initialize(board)
+          p ("gamescene.rb-initialize/15")
             haba = 100
             @player = Player.new(haba)
             @board = board
@@ -39,6 +40,7 @@ module Game
         end
 
         def play(score)
+          p ("gamescene.rb-play/43")
             ## food ##
             # @food.draw_food
             ## end ##

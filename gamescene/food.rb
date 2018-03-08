@@ -11,6 +11,7 @@ class Food
 	attr_accessor :food_fig
 
 	def initialize(food_fig)
+		p ("food-initialize/14")
 		@bg = Image.load('images/game_background.jpg', nil, nil, 600, 700)
 		@banana = Image.load('images/banana.png')
 		@banana.set_color_key(C_WHITE)
@@ -19,7 +20,7 @@ class Food
 	end
 
 	def draw_food
-		
+		p ("food-draw_food/23")
 		# Window.width = 600
 		# Window.height = 700
 		xy_list = make_x(@food_fig)
@@ -35,7 +36,7 @@ class Food
 		xy_list.each do |xy|
 			Window.draw(xy[0], xy[1], @banana)
 		end
-		
+
 		# Window.draw(  0, 625, @banana)
 =begin
 		Window.loop do
@@ -50,6 +51,7 @@ class Food
 	end
 
 	def make_x(fig)
+		p ("food-make_x/54")
 		xy = []
 		for i in 0..(fig - 1)
 			x = 300.0 / fig + 600.0 * i / fig - 50.0/2.0
@@ -60,6 +62,7 @@ class Food
 	end
 
 	def reduce_food
+		p ("food-reduce_food/65")
 		@food_fig-= 1
 	end
 

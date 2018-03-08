@@ -27,6 +27,7 @@ Scene.move_to(:title)
 score = 0
 
 Window.loop do
+  p ("main.rb-loop do/30")
   break if Input.key_push?(K_ESCAPE)
   # ゲームを終了させる
   score = Scene.play(score)
