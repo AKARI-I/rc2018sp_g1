@@ -33,7 +33,7 @@ module EnemyDirector
       ## end ##
     end
 
-    def play
+    def play(hoge)
       p ("director.rb-play/37")
       ## change for debug ##
       # Window.draw(0, 0, @bg_img)

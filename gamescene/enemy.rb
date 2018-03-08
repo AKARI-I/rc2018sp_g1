@@ -4,6 +4,7 @@ class Enemy
     @x, @y = x, y
     @image = Image.load(image_file)
     @image.set_color_key(C_WHITE)
+    @dy = 1
   end
 
   def move
