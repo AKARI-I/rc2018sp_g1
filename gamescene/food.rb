@@ -6,12 +6,16 @@
 		#@banana -= 1
 	#end
 #end
+
 class Food
+	attr_accessor :food_fig
+
 	def initialize(food_fig)
 		@bg = Image.load('images/game_background.jpg', nil, nil, 600, 700)
 		@banana = Image.load('images/banana.png')
 		@banana.set_color_key(C_WHITE)
 		@food_fig = food_fig
+		@delay_ending_cnt = 0
 	end
 
 	def draw_food
@@ -20,7 +24,11 @@ class Food
 		# Window.height = 700
 		xy_list = make_x(@food_fig)
 		if @food_fig < 1
-			Scene.move_to(:nomalEnding)
+			@delay_ending_cnt += 1
+			@food_fig = 0
+			if @delay_ending_cnt > 120
+				Scene.move_to(:nomalEnding)
+			end
 		end
 
 		Window.draw( 0,  0, @bg)

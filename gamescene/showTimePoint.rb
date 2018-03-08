@@ -1,12 +1,15 @@
 class TimePoint
 
 
-    def initialize(time_limit_min)
+    def initialize(time_limit_min, food_object)
         @bg = Image.load('images/white.png')
         @font = Font.new(32, "ＭＳ　Pゴシック")
         # @time_limit = Time.now + time_limit_min_int * 60
         @frm_for_time = (time_limit_min * 60 * 60).to_i
         @score = 0
+        @delay_ending_cnt = 0
+        @playing_game = 1
+        @food = food_object
     end
 
     def draw_time_point
@@ -17,9 +20,15 @@ class TimePoint
     end
 
     def draw_time
-        @frm_for_time -= 1
-        if @frm_for_time < 0
-            Scene.move_to(:nomalEnding)
+        if @frm_for_time < 1 or @food.food_fig < 1
+            @playing_game = 0
+			@delay_ending_cnt += 1
+			@frm_for_time = 0
+			if @delay_ending_cnt > 120
+				Scene.move_to(:nomalEnding)
+            end
+        elsif @playing_game > 0
+            @frm_for_time -= 1
         end
         showMin = @frm_for_time / 3600
         showSec = @frm_for_time / 60 - showMin * 60
@@ -31,7 +40,9 @@ class TimePoint
     end
 
     def add_point(score)
-        @score += score
+        if @playing_game > 0
+            @score += score
+        end
     end
 
 

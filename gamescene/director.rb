@@ -7,12 +7,12 @@ module EnemyDirector
       $goal_flg = 0 #グローバル変数
       #@enemy_positionX = [25, 125, 225, 325, 425, 525] #enemyのx座標(6レーン分)
 
-      ## to show time and point and add point ##
-      @showTimePoint = TimePoint.new(0.5)
-      ## end ##
-
       ## to show and reduce food ##
       @food = Food.new(7)
+      ## end ##
+
+      ## to show time and point and add point ##
+      @showTimePoint = TimePoint.new(0.5, @food)
       ## end ##
 
       ## change images ##
