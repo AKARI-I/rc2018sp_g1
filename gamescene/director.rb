@@ -118,7 +118,7 @@ module EnemyDirector
     end
 
     def upgrade_enemy
-      if @enemy_level < 5
+      if @enemy_level < 4
         @enemy_level += 1
       end
     end
@@ -142,7 +142,7 @@ module EnemyDirector
       # @enemy_shown = []
       i = 0
       @enemy[@enemy_level].each do |emy|
-        p emy.show_mode 
+        # p emy.show_mode 
         if emy.show_status < 1
           emy.show_mode = 1
           @enemy_shown[i] = 1
