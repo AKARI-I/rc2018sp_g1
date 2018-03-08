@@ -17,7 +17,6 @@ module Game
             @board = board
             # @board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
             # 上記の書き方だと、2回"board"が初期化されてしまう
-            # @board = board
             @frm = 1
             @dx = 0
             @button = 0
@@ -43,8 +42,6 @@ module Game
             ## food ##
             # @food.draw_food
             ## end ##
-
-
 
             ## Enemy ##
             score = @enemy.play

@@ -1,11 +1,12 @@
 require_relative 'enemy'
 require_relative 'enemy_monkey'
 require_relative 'showTimePoint'
+require_relative 'food'
 
 module EnemyDirector
   class Director
     def initialize
-      $goal_flg = 0 #グローバル変数
+      $goal_flg = 0
 
       ## to show and reduce food ##
       @food = Food.new(7)
@@ -18,10 +19,10 @@ module EnemyDirector
       rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
       @enemy_monkey    = Enemy_monkey.new(rand_x[rand(6)])
-      @enemy_snake     = Enemy.new(rand_x[rand(6)], "images_0/snake_2.png")
-      @enemy_elephant  = Enemy.new(rand_x[rand(6)], "images_0/elephant_2.png")
-      @enemy_crocodile = Enemy.new(rand_x[rand(6)], "images_0/crocodile_2.png")
-      @enemy_gorilla   = Enemy.new(rand_x[rand(6)], "images_0/gorilla_2.png")
+      @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images_0/snake_2.png")
+      @enemy_elephant  = Enemy.new(rand_x[rand(6)], 0, "images_0/elephant_2.png")
+      @enemy_crocodile = Enemy.new(rand_x[rand(6)], 0, "images_0/crocodile_2.png")
+      @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images_0/gorilla_2.png")
 
       ## end ##
       @bg_img = Image.load("images/game_background.jpg")
@@ -70,6 +71,8 @@ module EnemyDirector
         @enemy_elephant.draw
         @enemy_crocodile.draw
         @enemy_gorilla.draw
+      elsif $goal_flg == 1 then
+        $goal_flg = 0
       end
 
       return score
