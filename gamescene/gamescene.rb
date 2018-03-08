@@ -3,8 +3,11 @@ require_relative 'director'
 # require_relative 'enemy'
 # require 'smalrubot'
 
-## merge
+## merge ##
 require_relative 'food'
+## end ##
+
+# require_relative 'showTimePoint'
 
 module Game
     class Director
@@ -24,27 +27,51 @@ module Game
             ## end ##
 
             ## food ##
-            @food = Food.new()
+            # @food = Food.new(7)
+            ## end ##
+
+            ## showTimePoint ##
+            # @showTimePoint = TimePoint.new(0.5)
+            ## end ##
+
+            ## test @player.upgrade_ball ##
+            @tmp = 0
             ## end ##
         end
 
-        def play
+        def play(score)
             ## food ##
-            @food.draw_food
+            # @food.draw_food
             ## end ##
 
+
+
+            ## Enemy ##
+            score = @enemy.play
+            ## end ##
+            
             @player.draw_player
             @player.draw_ball
 
-            ## Enemy ##
-            @enemy.play
+            ## test @player.upgrade_ball ##
+            if @tmp > 90
+                @player.upgrade_ball
+                @tmp = 0
+            else
+                @tmp += 1
+            end
+            ## end ##
+
+            ## showTimePoint ##
+            # @showTimePoint.draw_time_point
             ## end ##
 
             if @frm == 30
                 @dx = @board.digital_read(4)
                 @button = @board.digital_read(3)
-                p "katamuki:", @dx
-                p "button:", @button
+                puts "katamuki: #{@dx}"
+                puts "button: #{@button}"
+                # @showTimePoint.add_point(4)
             end
             @frm += 1
             @frm = 1 if @frm > 30
@@ -61,7 +88,10 @@ module Game
                 @player.push_button = 0
             end
 
-
+            ## to check ball_xy ##
+            ball_xy = @player.ball_xy
+            # p ball_xy
+            ## end ##
 
             # if @score > 100
             #     Scene.move_to(:happy_ending)
@@ -69,6 +99,8 @@ module Game
             # else
             #     Scene.move_to(:bad_endding)
             # end
+
+            return score
         end
     end
 end

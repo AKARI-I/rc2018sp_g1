@@ -6,19 +6,32 @@
 		#@banana -= 1
 	#end
 #end
+
 class Food
-	def initialize
-		@bg = Image.load('images/background5.jpg', nil, nil, 600, 700)
-		@banana = Image.load('images/fruit_banana2_2.png')
+	attr_accessor :food_fig
+
+	def initialize(food_fig)
+		@bg = Image.load('images/game_background.jpg', nil, nil, 600, 700)
+		@banana = Image.load('images/banana.png')
+		@banana.set_color_key(C_WHITE)
+		@food_fig = food_fig
+		@delay_ending_cnt = 0
 	end
 
 	def draw_food
 		
 		# Window.width = 600
 		# Window.height = 700
-		xy_list = make_x(7)
+		xy_list = make_x(@food_fig)
+		if @food_fig < 1
+			@delay_ending_cnt += 1
+			@food_fig = 0
+			if @delay_ending_cnt > 120
+				Scene.move_to(:nomalEnding)
+			end
+		end
 
-		Window.draw(  0,   0, @bg)
+		Window.draw( 0,  0, @bg)
 		xy_list.each do |xy|
 			Window.draw(xy[0], xy[1], @banana)
 		end
@@ -44,6 +57,10 @@ class Food
 		end
 		# p xy
 		return xy
+	end
+
+	def reduce_food
+		@food_fig-= 1
 	end
 
 

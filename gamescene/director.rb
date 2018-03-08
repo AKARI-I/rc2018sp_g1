@@ -1,9 +1,18 @@
 require_relative 'enemy'
+require_relative 'showTimePoint'
 
 module EnemyDirector
   class Director
     def initialize
       $goal_flg = 0 #グローバル変数
+
+      ## to show and reduce food ##
+      @food = Food.new(7)
+      ## end ##
+
+      ## to show time and point and add point ##
+      @showTimePoint = TimePoint.new(0.5, @food)
+      ## end ##
 
       rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
@@ -14,7 +23,11 @@ module EnemyDirector
       @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images/gorilla_2.png")
 
       ## end ##
-      @bg_img = Image.load("images/background.png")
+      @bg_img = Image.load("images/game_background.jpg")
+
+      ## test @food.reduce_food ##
+      @tmp = 0
+      ## end ##
     end
 
     def play
@@ -22,6 +35,27 @@ module EnemyDirector
       # Window.draw(0, 0, @bg_img)
       ## end ##
       Window.decide #背景の描画予約
+
+
+      ## show
+      @food.draw_food
+      ## end ##
+
+      ## test @food.reduce_food ##
+      if @tmp > 120
+        @food.reduce_food
+        @tmp = 0
+      elsif
+        @tmp += 1
+      end
+      ## end ##
+
+      ## show time and point ##
+      @showTimePoint.add_point(5) # <- test
+      score = @showTimePoint.draw_time_point
+      # p "score",score
+      ## end ##
+
 
       if $goal_flg == 0 then
         @enemy_monkey.move
@@ -36,6 +70,8 @@ module EnemyDirector
         @enemy_crocodile.draw
         @enemy_gorilla.draw
       end
+
+      return score
     end
   end
 end
