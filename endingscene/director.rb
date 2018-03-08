@@ -13,8 +13,8 @@ module NomalEnding
             # @pnt = score
             Window.draw(0, 0, @image)
 
-            Window.draw_font_ex(100, 280, "Successfully Completed", @font, {:edge_color => [0,0,0], :edge => true, :edge_width => 10, :edge_level => 9})
-            Window.draw_font_ex(200, 400, "Your Score:", @font, {:edge_color => [0,0,0], :edge => true, :edge_width => 10, :edge_level => 9})
+            Window.draw_font_ex(100, 280, "遊んでくれてありがとう！", @font, {:edge_color => [0,0,0], :edge => true, :edge_width => 10, :edge_level => 9})
+            Window.draw_font_ex(150, 400, "あなたのスコア：", @font, {:edge_color => [0,0,0], :edge => true, :edge_width => 10, :edge_level => 9})
             Window.draw_font_ex(380, 400, "#{format("%4d", score)}", @font_e, {:edge_color => [255,0,0], :edge => true, :edge_width => 10, :edge_level => 9})
 
             return score
