@@ -16,11 +16,11 @@ module EnemyDirector
 
       rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
 
-      @enemy_monkey    = Enemy.new(rand_x[rand(6)], 0, "images/monky_2.png")
-      @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images/snake_2.png")
-      @enemy_elephant  = Enemy.new(rand_x[rand(6)], 0, "images/elephant_2.png")
-      @enemy_crocodile = Enemy.new(rand_x[rand(6)], 0, "images/crocodile_2.png")
-      @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images/gorilla_2.png")
+      @enemy_monkey    = Enemy.new(rand_x[rand(6)], 0, "images_0/monky_2.png")
+      @enemy_snake     = Enemy.new(rand_x[rand(6)], 0, "images_0/snake_2.png")
+      @enemy_elephant  = Enemy.new(rand_x[rand(6)], 0, "images_0/elephant_2.png")
+      @enemy_crocodile = Enemy.new(rand_x[rand(6)], 0, "images_0/crocodile_2.png")
+      @enemy_gorilla   = Enemy.new(rand_x[rand(6)], 0, "images_0/gorilla_2.png")
 
       ## end ##
       @bg_img = Image.load("images/game_background.jpg")

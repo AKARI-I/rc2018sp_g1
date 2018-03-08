@@ -49,7 +49,7 @@ module Game
             ## Enemy ##
             score = @enemy.play
             ## end ##
-            
+
             @player.draw_player
             @player.draw_ball
 
