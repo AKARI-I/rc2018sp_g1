@@ -16,25 +16,7 @@ module EnemyDirector
 
       rand_x = [25, 125, 225, 325, 425, 525]  #6レーン
       @rand_x = rand_x
-=begin
-      @enemy_menbers = []
 
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/monky_enemy.png", @food)
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/snake_enemy.png", @food)
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/elephant_enemy.png", @food)
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/crocodile_enemy.png", @food)
-      @enemy_menbers << Enemy.new(rand_x[rand(6)], 0, "images/gorilla_boss_enemy.png", @food)
-
-      temp = []
-      @enemy = []
-      @enemy_menbers.each do |enemy_member|
-        10.times do
-          temp << enemy_member
-        end
-        @enemy << temp
-        temp = []
-      end
-=end  
       @enemy = []
       temp2 = []
       10.times do
