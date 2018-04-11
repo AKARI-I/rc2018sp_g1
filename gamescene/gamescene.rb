@@ -35,8 +35,9 @@ module Game
             ## end ##
 
             ## test @player.upgrade_ball ##
-            @tmp = 0
+            # @tmp = 0
             ## end ##
+            @upgrade_ball_status = 0
         end
 
         def play(score)
@@ -45,19 +46,28 @@ module Game
             # @food.draw_food
             ## end ##
 
-            ## Enemy ##
-            score = @enemy.play
+            ## to check ball_xy ##
+            ball_xy = @player.ball_xy
+            # p ball_xy
             ## end ##
+            score_old = score
+          
+            ## Enemy ##
+            score = @enemy.play(ball_xy)
+            ## end ##
+          
+            @upgrade_ball_status += (score - score_old)
 
             @player.draw_player
             @player.draw_ball
 
             ## test @player.upgrade_ball ##
-            if @tmp > 90
+            if @upgrade_ball_status > 100
                 @player.upgrade_ball
-                @tmp = 0
+                @upgrade_ball_status = 0
+                # @tmp = 0
             else
-                @tmp += 1
+                # @tmp += 1
             end
             ## end ##
 
@@ -87,10 +97,7 @@ module Game
                 @player.push_button = 0
             end
 
-            ## to check ball_xy ##
-            ball_xy = @player.ball_xy
-            # p ball_xy
-            ## end ##
+
 
             # if @score > 100
             #     Scene.move_to(:happy_ending)

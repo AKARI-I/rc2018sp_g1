@@ -1,20 +1,48 @@
 class Enemy
-  def initialize(x, y, image_file)
-    p ("enemy.rb-initialize/3")
-    @x, @y = x, y
+
+
+  attr_accessor :show_mode
+  attr_accessor :show_status
+  def initialize(x, y, image_file, food)
+    @food = food
+    # @x, @y = x, y
+    @y = y
     @image = Image.load(image_file)
     @image.set_color_key(C_WHITE)
-    @dy = 1
+    
+    @dy = 1.6
+    @x = 1000
+    @show_mode = 1
+    @show_status = 1
   end
 
-  def move
-    p ("enemy.rb-move/10")
-    @y += @dy
-    $goal_flg = 1 if @y > 550
-  end
+  def draw(x) 
+    #show_mode -1: no, 0: move, 1: input
+    # @show_status = 1
+    if @y > 550 and @y < 900
+      @food.reduce_food
+      @show_mode = -1
+    end
+    if @show_mode > 0
+      @y = 0
+      @x = x
+      # $goal_flg = 1 if @y > 550 || @y < 0
+      # @show_mode = 
+      Window.draw(@x, @y, @image)
+      @show_status = 1
+      # p "show_mode = 1"
+    elsif @show_mode == 0
+      # $goal_flg = 1 if @y > 550 || @y < 0
+      @y += @dy
 
-  def draw
-    p ("enemy.rb-draw/16")
-    Window.draw(@x, @y, @image)
+      Window.draw(@x, @y, @image)
+      @show_status = 1
+      # p "show_mode = 0"
+    else
+      @show_status = 0
+      @x, @y = 1000, 1000
+      # p "show_mode = -1"
+    end
+    return [@x, @y]
   end
 end
