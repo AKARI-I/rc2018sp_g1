@@ -1,5 +1,6 @@
 class Enemy
 
+
   attr_accessor :show_mode
   attr_accessor :show_status
   def initialize(x, y, image_file, food)
@@ -7,8 +8,8 @@ class Enemy
     # @x, @y = x, y
     @y = y
     @image = Image.load(image_file)
-    # @image.set_color_key([0, 0, 0])
     @image.set_color_key(C_WHITE)
+    
     @dy = 1.6
     @x = 1000
     @show_mode = 1

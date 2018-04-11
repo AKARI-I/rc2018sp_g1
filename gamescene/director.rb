@@ -1,10 +1,17 @@
 require_relative 'enemy'
+require_relative 'enemy_monkey'
+require_relative 'enemy_snake'
+require_relative 'enemy_elephant'
+require_relative 'enemy_crocodile'
+require_relative 'enemy_gorilla'
 require_relative 'showTimePoint'
+require_relative 'food'
 
 module EnemyDirector
   class Director
     def initialize
-      $goal_flg = 0 #グローバル変数
+      p ("director.rb-initialize/9")
+      $goal_flg = 0
 
       ## to show and reduce food ##
       @food = Food.new(20)
@@ -44,6 +51,11 @@ module EnemyDirector
       end
       @enemy << temp2     
 
+      @enemy_monkey    = Enemy_monkey.new(rand_x[rand(6)])
+      @enemy_snake     = Enemy_snake.new(rand_x[rand(6)])
+      @enemy_elephant  = Enemy_elephant.new(rand_x[rand(6)])
+      @enemy_crocodile = Enemy_crocodile.new(rand_x[rand(6)])
+      @enemy_gorilla   = Enemy_gorilla.new(rand_x[rand(6)])
 
 
       @enemy.each do |emy|

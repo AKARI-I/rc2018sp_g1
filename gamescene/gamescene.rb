@@ -12,12 +12,12 @@ require_relative 'food'
 module Game
     class Director
         def initialize(board)
+          p ("gamescene.rb-initialize/15")
             haba = 100
             @player = Player.new(haba)
             @board = board
             # @board = Smalrubot::Board.new(Smalrubot::TxRx::Serial.new)
             # 上記の書き方だと、2回"board"が初期化されてしまう
-            # @board = board
             @frm = 1
             @dx = 0
             @button = 0
@@ -41,6 +41,7 @@ module Game
         end
 
         def play(score)
+          p ("gamescene.rb-play/43")
             ## food ##
             # @food.draw_food
             ## end ##
@@ -50,10 +51,13 @@ module Game
             # p ball_xy
             ## end ##
             score_old = score
+          
             ## Enemy ##
             score = @enemy.play(ball_xy)
             ## end ##
+          
             @upgrade_ball_status += (score - score_old)
+
             @player.draw_player
             @player.draw_ball
 
